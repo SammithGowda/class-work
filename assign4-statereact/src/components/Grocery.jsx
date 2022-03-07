@@ -1,0 +1,33 @@
+import { useState } from "react"
+import { GroceryInput } from "./Grocerinput"
+import { Grocerylist } from "./GrocerList"
+
+ export const Grocery=()=>{
+const [totalitem,steTotalitem]=useState([])
+console.log(totalitem,"tot itm")
+const itemchanges=(data)=>{
+    const x={
+        title:data,
+        id:Math.floor(Math.random() * 100) + 1
+    }
+   steTotalitem([...totalitem,x])
+//    console.log(totalitem,"totl")
+}
+
+  const deletefun =(id)=>{
+    //  const delte =totalitem.map((el)=>el.id===id) 
+    //  if(delte) totalitem.splice()
+    //    steTotalitem(totalitem)
+    
+     console.log("list")
+     
+
+  }
+    return(
+    < div className="main">
+    <GroceryInput  itemchanges={itemchanges}/>
+    {totalitem.map((e)=>
+    <Grocerylist deletefun={deletefun} items={e.title} id={e.id}/>)}
+    </div>
+    )
+}
