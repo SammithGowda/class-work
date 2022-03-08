@@ -1,6 +1,6 @@
 import { useState } from "react"
-export function Counter(){
-    const [count,setCounter]= useState(0);
+export function Counter(props){
+    const [count,setCounter]= useState(props.value);
     
     function changingvlaue(value) {
         setCounter(count+value)

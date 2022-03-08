@@ -4,7 +4,7 @@ import { Grocerylist } from "./GrocerList"
 
  export const Grocery=()=>{
 const [totalitem,steTotalitem]=useState([])
-console.log(totalitem,"tot itm")
+// console.log(totalitem,"tot itm")
 const itemchanges=(data)=>{
     const x={
         title:data,
@@ -16,10 +16,19 @@ const itemchanges=(data)=>{
 
   const deletefun =(id)=>{
     //  const delte =totalitem.map((el)=>el.id===id) 
-    //  if(delte) totalitem.splice()
-    //    steTotalitem(totalitem)
+     let b = totalitem.filter(function (e) {
+      return e.id === id
+});
+
+ b.forEach(function(element) {
+   var index = totalitem.indexOf(element)
+   console.log(index)
+   totalitem.splice(index, 1)
+   console.log(totalitem,"totitm")
+   
+  })
+  steTotalitem(totalitem)
     
-     console.log("list")
      
 
   }
