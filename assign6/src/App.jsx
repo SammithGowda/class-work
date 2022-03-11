@@ -3,7 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 import { Timer } from './components/Time'
 let start=1;
-let end=10
+let end=10;
 function App() {
 const [show,setTimer]=useState(true)
   return (

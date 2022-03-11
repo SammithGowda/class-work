@@ -27,7 +27,7 @@ const itemchanges=(data)=>{
    console.log(totalitem,"totitm")
    
   })
-  steTotalitem(totalitem)
+  steTotalitem([...totalitem])/// tado delete 
     
      
 
