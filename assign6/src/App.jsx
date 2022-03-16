@@ -9,7 +9,7 @@ const [show,setTimer]=useState(true)
   return (
     <div>
 
-     {show ? < Timer start={start} end={end}/>:"You Stoped Timer "}
+     {show ? < Timer start={start} end={end}/> : "You Stoped Timer "}
 
       <button onClick={()=>{
       setTimer(show ? false :true)
