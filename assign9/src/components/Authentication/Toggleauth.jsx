@@ -9,9 +9,16 @@ export const Toogle = () => {
   }, []);
 
   const getdata = () => {
-    axios.get(`https://reqres.in/api/login`).then((res) => {
-      setLogedata(res.data);
-      console.log(res.data);
+    axios({
+      url: " https://reqres.in/api/login",
+      type: "POST",
+      data: {
+        email: "eve.holt@reqres.in",
+        password: "cityslicka",
+      },
+      success: function (response) {
+        console.log(response, "reeeeeeeeeeeee");
+      },
     });
   };
   return <h1>Hey hello Wellcome</h1>;
