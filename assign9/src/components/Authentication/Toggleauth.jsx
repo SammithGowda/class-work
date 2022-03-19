@@ -8,7 +8,7 @@ export const Toogle = () => {
 
   return (
     <>
-      <div>{isAuth ? <h3> Token :{token}</h3> : <h3> log in </h3>}</div>
+      <div>{isAuth ? <h3> Token :{token}</h3> : <h3>NOT LOGIN </h3>}</div>
     </>
   );
 };

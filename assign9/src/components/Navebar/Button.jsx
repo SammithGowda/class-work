@@ -12,7 +12,7 @@ export const Button = () => {
             handlechanger();
           }}
         >
-          LOGIN
+          LOG IN
         </button>
 
         <button
@@ -20,7 +20,7 @@ export const Button = () => {
             handlechnager2();
           }}
         >
-          out
+          LOG OUT
         </button>
       </div>
       {/* <div>{token}</div> */}
