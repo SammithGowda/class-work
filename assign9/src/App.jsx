@@ -4,11 +4,17 @@ import { Toogle } from "./components/Authentication/Toggleauth";
 import { Button } from "./components/Navebar/Button";
 import { Auth } from "./Context/AuthContext";
 function App() {
-  const { boolen } = useContext(Auth);
+  const { boolen, token } = useContext(Auth);
 
-  console.log(boolen, "in app.jsx");
-
-  return <div className="App">{boolen ? <Button /> : <Toogle />}</div>;
+  // console.log(boolen);
+  return (
+    <>
+      <div className="App">
+        <Button />
+        <Toogle />
+      </div>
+    </>
+  );
 }
 
 export default App;
