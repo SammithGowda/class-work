@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddTodo } from "../../Redux/Action";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 export const Home = () => {
   const [text, setText] = useState("");
   // const [status, setStatus] = useState("");
@@ -11,14 +12,31 @@ export const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    getdata();
+  }, []);
+  const getdata = () => {
     axios.get("http://localhost:8080/TODOS").then(({ data }) => {
       // setData1(res.data);
       dispatch(AddTodo(data));
     });
-  }, []);
-  // console.log(data1, "data from db");
+  };
 
-  console.log(data, "x");
+  const Addata = () => {
+    axios({
+      method: "POST",
+      url: "http://localhost:8080/TODOS",
+      data: {
+        name: text,
+        status: false,
+      },
+    }).then(() => {
+      getdata();
+    });
+  };
+
+  const Deletedata = (id) => {
+    axios.delete(`http://localhost:8080/TODOS/${id}`).then(getdata());
+  };
 
   return (
     <div>
@@ -30,21 +48,25 @@ export const Home = () => {
       <br />
       <button
         onClick={() => {
-          axios({
-            method: "POST",
-            url: "  http://localhost:8080/TODOS",
-            data: {
-              name: text,
-            },
-          }).then(() => {
-            alert("done");
-          });
+          Addata();
         }}
       >
         ADD TODO
       </button>
       {data.map((e) => (
-        <h6>{e.name}</h6>
+        <div key={e.id}>
+          <span>{e.name}</span>
+          <button
+            onClick={() => {
+              Deletedata(e.id);
+            }}
+          >
+            Delete
+          </button>
+          <span>
+            <Link to={`todo/${e.id}`}>View</Link>
+          </span>
+        </div>
       ))}
     </div>
   );
