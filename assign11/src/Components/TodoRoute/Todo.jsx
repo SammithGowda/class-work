@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 export const Todo = () => {
+  const sammith = useSelector((store) => store.todo);
+
+  console.log(sammith, "sammith");
+
   const { id } = useParams();
   const [tododata, setTododata] = useState({});
 
@@ -14,7 +18,7 @@ export const Todo = () => {
   const getdata = () => {
     axios.get(`http://localhost:8080/TODOS/${id}`).then((res) => {
       setTododata(res.data);
-      console.log(res.data, "datas");
+      // console.log(res.data, "datas");
     });
   };
 
@@ -25,7 +29,7 @@ export const Todo = () => {
       })
       .then((res) => {
         getdata();
-        console.log(res.data, "put");
+        // console.log(res.data, "put");
       });
   };
 
@@ -35,7 +39,7 @@ export const Todo = () => {
       <div>{tododata.id}</div>
       <button
         onClick={() => {
-          console.log("clicked");
+          // console.log("clicked");
           chnage(id);
         }}
       >

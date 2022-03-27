@@ -15,7 +15,7 @@ export const Home = () => {
     getdata();
   }, []);
   const getdata = () => {
-    axios.get("http://localhost:8080/TODOS").then(({ data }) => {
+    axios.get("http://localhost:8080/TODOS ").then(({ data }) => {
       // setData1(res.data);
       dispatch(AddTodo(data));
     });
